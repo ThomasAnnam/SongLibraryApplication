@@ -8,35 +8,43 @@ import javax.persistence.Id;
 
 @Entity(name = "song")
 public class Song {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-	
-	@Column(name="artist")
-	private String artistName;
-	
-	@Column(name="name")
-	private String songName;
-			
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	@Column
+	private String artist;
+
+	@Column
+	private String title;
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-		
-	public void setSongName(String songName) {
-		this.songName = songName;
-	}
-		
+
 	public Long getId() {
 		return id;
 	}
-		
-	public String getSongName() {
-		return songName;
+
+	public String getTitle() {
+		return title;
 	}
-	
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+
 	@Override
 	public String toString() {
-		return "[Artist: "+artistName+" SongName: "+songName+"]";
+		return "[Artist: " + artist + " Title: " + title + "]";
 	}
 }
