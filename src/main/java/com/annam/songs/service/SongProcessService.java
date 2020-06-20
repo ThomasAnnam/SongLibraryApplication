@@ -1,8 +1,6 @@
 package com.annam.songs.service;
 
 import java.util.List;
-
-import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,19 +21,19 @@ public class SongProcessService {
 		return songService.get();
 	}
 	
-	public String add(String body) throws HibernateException {
+	public String add(String body) {
 		Song song = gson.fromJson(body, Song.class);
 		songService.add(song);
 		return "Successfully Inserted";
 	}
 	
-	public String edit(Long id,String body) throws HibernateException {
+	public String edit(Long id,String body) {
 		Song song = gson.fromJson(body, Song.class);
 		songService.edit(id, song);
 		return "Successfully Edited";
 	}
 	
-	public String delete(Long id) throws HibernateException {
+	public String delete(Long id) {
 		songService.delete(id);
 		return "Successfully Deleted";
 	}
